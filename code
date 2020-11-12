@@ -1,0 +1,10 @@
+cd /home/opt/biosoft/PSIPred/psipred
+###run
+./runpsipred example/example.fasta
+##分割文件
+awk '/^>/{s=++num}{print > "Nlu_"s".fa"}' signal.fa
+
+ ls Nlu_* |while read id ; do /home/opt/biosoft/PSIPred/psipred/runpsipred $id ; done;
+ 
+ 
+ 
